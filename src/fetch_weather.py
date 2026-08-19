@@ -19,7 +19,7 @@ def fetch_weather():
         logging.error(f"{datetime.now()} - API Error: {e}")
         return None
     
-    def save_to_bronze(data):
+def save_to_bronze(data):
         # Make sure the folder exists
         os.makedirs("data/bronze", exist_ok=True)
         # File name example: data/bronze/2025-01-22.json
@@ -29,13 +29,13 @@ def fetch_weather():
             json.dump(data,f, indent=2)
             print(f"[OK] Raw weather saved {filepath}")
             
-    def main():
-        print("Fetching weather data...")
-        weather = fetch_weather()
-        if weather:
-            save_to_bronze(weather)
-        else:
-            print("❌ No data received. Check logs for details.")
+def main():
+    print("Fetching weather data...")
+    weather = fetch_weather()
+    if weather:
+        save_to_bronze(weather)
+    else:
+        print("❌ No data received. Check logs for details.")
             
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
