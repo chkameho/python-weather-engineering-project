@@ -23,7 +23,7 @@ def create_folders():
                ]
     
     for folder in folders:
-        os.makedirs(folders, exist_ok= True)
+        os.makedirs(folder, exist_ok= True)
         print(f"[OK] Folder ready: {folder}")
     
 def show_structure():
